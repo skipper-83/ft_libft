@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ftoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 17:58:35 by albertvanan       #+#    #+#             */
-/*   Updated: 2022/11/18 11:49:39 by avan-and         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:13:14 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ static int	digits(signed long long n, int ret);
 static void	fill_numbers(int len, int sign, long double n, char *ret);
 static void	fill_float(int prec, char *ret, int len, long double after_point);
 
+/**
+ * @brief float to ascii
+ * 
+ * @param n 
+ * @param precision 
+ * @return char* 
+ */
 char	*ft_ftoa(long double n, int precision)
 {
 	char		*ret;
@@ -59,6 +66,16 @@ static void	fill_numbers(int len, int sign, long double n, char *ret)
 	}
 }
 
+/**
+ * @brief	norminette-induced function split,
+ * 			add the float digits to the return string
+ * 			(remove digits added to avoid int overflow)
+ * 
+ * @param prec 
+ * @param ret 
+ * @param len 
+ * @param after_point 
+ */
 static void	fill_float(int prec, char *ret, int len, long double after_point)
 {
 	if (prec > 0)
